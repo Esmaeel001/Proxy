@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Proxy</title>
+</head>
+<body>
+    <h1>GitHub Proxy</h1>
+    <input type="text" id="url" placeholder="URL رو وارد کن">
+    <button onclick="fetch_url()">Fetch</button>
+    <pre id="result"></pre>
+
+    <script>
+        function fetch_url() {
+            const url = document.getElementById('url').value;
+            
+            // CORS Proxy سرویس استفاده کن
+            const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+            
+            fetch(corsProxy + url)
+                .then(r => r.text())
+                .then(d => {
+                    document.getElementById('result').textContent = d;
+                })
+                .catch(e => {
+                    document.getElementById('result').textContent = 'Error: ' + e;
+                });
+        }
+    </script>
+</body>
+</html>
