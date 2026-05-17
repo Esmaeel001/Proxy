@@ -13,8 +13,6 @@
     <script>
         function fetch_url() {
             const url = document.getElementById('url').value;
-            
-            // CORS Proxy سرویس استفاده کن
             const corsProxy = 'https://cors-anywhere.herokuapp.com/';
             
             fetch(corsProxy + url)
